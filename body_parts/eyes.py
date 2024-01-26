@@ -7,6 +7,7 @@ from luma.oled.device import sh1106
 from time import sleep, time
 from random import randint, uniform
 import logging
+import asyncio
 
 
 class Eyes():
@@ -16,9 +17,9 @@ class Eyes():
     position = dict(left=25, top=10)
     eye = dict(state='default', x='center', y='center')
 
-    def __init__(self):
-        self.logger = logging.getLogger("self.eyeS")
-        self.logger.info("Initializing self.eyes Thread ...")
+    async def __init__(self):
+        self.logger = logging.getLogger("EYES")
+        self.logger.info("Initializing EYES Thread ...")
         while True:
             state = randint(0,1)
             if state == 0:
@@ -58,17 +59,17 @@ class Eyes():
             state = randint(0,1)
             if state == 0:
                 self.eye['state'] = 'default'
-                self.default(self.eye, self.position)
+                await self.default(self.eye, self.position)
             elif state == 1:
                 self.eye['state'] = 'blink'
-                self.blink(self.eye, self.position)
+                await self.blink(self.eye, self.position)
 
-    def draw_rounded(self, left, top, width, height, space, radius, offset):
+    async def draw_rounded(self, left, top, width, height, space, radius, offset):
         with canvas(self.device) as draw:
             draw.rounded_rectangle((left,                 top + offset, left + width,                 height + top + offset), fill="white", radius=radius)
             draw.rounded_rectangle((left + width + space, top + offset, left + width + space + width, height + top + offset), fill="white", radius=radius)
 
-    def look_around(self, eye, pos):
+    async def look_around(self, eye, pos):
         match eye['x']:
             case 'center':
                 if pos['left'] < 25:
@@ -95,13 +96,13 @@ class Eyes():
                 if pos['top'] < 25:
                     pos['top'] += 1
 
-    def default(self, eye, pos):
+    async def default(self, eye, pos):
         duration_ms = uniform(1.0, 5.0)
         future_timestamp = time() + duration_ms
         while time() < future_timestamp:
             self.draw_rounded(pos['left'], pos['top'], 30, 35, 10, 9, 0)
             self.look_around(eye, pos)
 
-    def blink(self, eye, pos):
+    async def blink(self, eye, pos):
         self.draw_rounded(pos['left'], pos['top'], 30, 5, 10, 9, 20)
-        sleep(0.1)
+        await asyncio.sleep(0.1)

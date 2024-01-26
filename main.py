@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import signal
+import sys
 import logging
-import tornado
-from ui.webserver import WebServer
 from deskrobot import Deskrobot
+import asyncio
 
+def signal_handler(signal, frame):
+  sys.exit(0)
 
 if __name__ in '__main__':
 
@@ -18,6 +21,5 @@ if __name__ in '__main__':
             logging.StreamHandler()
         ]
     )
-    deskrobot = Deskrobot()
-    WebServer().serve()
-    tornado.ioloop.IOLoop.current().start()
+    signal.signal(signal.SIGINT, signal_handler)
+    asyncio.run(Deskrobot())
