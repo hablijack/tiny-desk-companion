@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import tornado
-from api.handler.homepage import Homepage
+from ui.handler.homepage import Homepage
 from tornado.web import Application
 import os
 import logging
