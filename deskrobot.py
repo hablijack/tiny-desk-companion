@@ -1,13 +1,20 @@
+
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import logging
 from body_parts.eyes import Eyes
+from body_parts.ears import Ears
+from multiprocessing import Process
 
 
 class Deskrobot():
-    
     def __init__(self):
         self.logger = logging.getLogger('DESKROBOT')
-        self.logger.debug('... initializing deskrobot system, press Ctrl-C to quit!')
-        Eyes()
+        self.eyes = Eyes()
+        self.ears = Ears()
+
+    def birth(self):
+        self.logger.info('... initializing deskrobot system, press Ctrl-C to quit!')
+        Process(target=self.eyes.birth).start()
+        Process(target=self.ears.birth).start()

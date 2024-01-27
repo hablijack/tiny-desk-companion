@@ -5,13 +5,13 @@ import signal
 import sys
 import logging
 from deskrobot import Deskrobot
-import asyncio
+from ui.webserver import Webserver
+
 
 def signal_handler(signal, frame):
   sys.exit(0)
 
 if __name__ in '__main__':
-
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s [%(name)s] %(message)s",
@@ -22,4 +22,5 @@ if __name__ in '__main__':
         ]
     )
     signal.signal(signal.SIGINT, signal_handler)
-    asyncio.run(Deskrobot())
+    Deskrobot().birth()
+    Webserver().serve()
