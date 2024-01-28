@@ -4,16 +4,6 @@ var UI = (function () {
     var aniRing2Delay = null;
     var aniRing3Delay = null;
 
-    var hotmode = false;
-
-    var animateJuryText = function () {
-        $('.juryTextValue').typed({
-            strings: ['DOMINO'],
-            typeSpeed: 50,
-            showCursor: false
-        });
-    };
-
     var hideWelcomeRings = function () {
         $(".welcomeRing3").transition({
             scale: '.85714285714'
@@ -100,35 +90,6 @@ var UI = (function () {
         });
     };
 
-    var updateFooterGraph = function () {
-        $(".footerGraphUnit").each(function (i, e) {
-            var that = this;
-            setTimeout(function () {
-                $(that).transition({
-                    opacity: '1'
-                }, 300, function () { });
-            }, 200 * i);
-        });
-
-        setTimeout(function () {
-            $($(".footerGraphUnit").get().reverse()).each(function (i, e) {
-                var that = this;
-                if (that != $(".footerGraphUnit")[0]) {
-                    setTimeout(function () {
-                        $(that).transition({
-                            opacity: '0'
-                        }, 800, function () { });
-                    }, 50 * i);
-                }
-            });
-        }, 2000);
-    };
-
-    var initClock = function () {
-        setInterval('Domino.updateClock()', 1000);
-        $('.typed-cursor').show();
-    };
-
     var unlockApp = function () {
         $(".lockIcon").css({
             'background-image': 'url(static/images/unlock.png)'
@@ -189,27 +150,6 @@ var UI = (function () {
             setTimeout(function () {
                 unlockApp();
             }, 7000);
-
-            setTimeout(function () {
-                animateJuryText();
-            }, 15000);
         },
-
-        keywordFound: function () {
-            updateFooterGraph();
-            $('.recognitionVisualization').show();
-        },
-
-        executeCommand: function (command) {
-            $('.recognitionVisualization').hide();
-        },
-
-        footerGraphAnimation: function () {
-            updateFooterGraph();
-        },
-
-        updateClock: function () {
-            $('.clock').html(moment().locale('de').format('LLLL'));
-        }
     };
 })();
