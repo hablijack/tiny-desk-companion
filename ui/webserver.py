@@ -17,8 +17,8 @@ class Webserver():
 
     def serve(self):
         settings = dict(
-            template_path=rel('./ui/templates'),
-            static_path=rel('./ui/static'),
+            template_path=rel('./templates'),
+            static_path=rel('./static'),
             debug=True
         )
         app = Application([
