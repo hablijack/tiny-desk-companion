@@ -131,22 +131,22 @@ var UI = (function () {
 
     var unlockApp = function () {
         $(".lockIcon").css({
-            'background-image': 'url(images/unlock.png)'
+            'background-image': 'url(../images/unlock.png)'
         });
         setTimeout(function () {
             $(".welcomeRing1").css({
-                'background-image': 'url(images/welcomeRing1G.png)'
+                'background-image': 'url(../images/welcomeRing1G.png)'
             });
         }, 500);
         setTimeout(function () {
             $(".welcomeRing2").css({
-                'background-image': 'url(images/welcomeRing2G.png)'
+                'background-image': 'url(../images/welcomeRing2G.png)'
             });
 
         }, 1000);
         setTimeout(function () {
             $(".welcomeRing3").css({
-                'background-image': 'url(images/welcomeRing3G.png)'
+                'background-image': 'url(../images/welcomeRing3G.png)'
             });
             $(".welcomeRing3").stop(true, true);
             $(".welcomeRing2").stop(true, true);
