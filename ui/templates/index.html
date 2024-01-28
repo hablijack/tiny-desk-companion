@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>TINY-DESK-ROBOT</title>
+    <link rel="stylesheet" href="css/ui.css" type="text/css" />
+</head>
+
+<body>
+
+    <div class="welcomeRings">
+        <div class="welcomeRing3"></div>
+        <div class="welcomeRing2"></div>
+        <div class="welcomeRing1"></div>
+        <div class="lockIcon"></div>
+    </div>
+
+    <div class="bgAnimRing">
+        <div class="bgAnimRing3"></div>
+        <div class="bgAnimRing2"></div>
+        <div class="bgAnimRing1"></div>
+    </div>
+
+    <div class="infoText">
+        <span class="clock"></span>
+        <span class="typed-cursor" style="display: none;">_</span>
+    </div>
+
+    <div class="footerImg">
+        <div class="sineGraph"></div>
+        <div class="recognitionVisualization">... listening ...</div>
+        <div class="juryText">
+            <span class="juryTextValue">
+        </div>
+    </div>
+    <div class="footerGraph">
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+        <div class="footerGraphUnit"></div>
+    </div>
+    </div>
+
+    <div id="sphereContainer"></div>
+    <div id="mapsContainer"></div>
+    <div id="messageContainer"></div>
+    <div id="videoContainer">
+        <video width="100%" autoplay autobuffer>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- EXTERNAL JS MODULES -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"
+        integrity="sha512-ueXKWOB9liraz677EVGxz6H8nLk3RJjNv8Bfc0WrO9K9NyxROX3D/6bvZ9RYvAcYFxsVU+I0Jt/AMK0Nk8ya5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"
+        integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"
+        integrity="sha512-MzkTUQKzHBkhWDcz2CVCP1GBbj8NPlpVW4oZrvc4//GFLiXmBno2yb6C9Cb0POuO4jpQrmxMLYKCuMJN7XDcBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- INTERNAL JS MODULES -->
+    <script src="js/ringanimator_module.js"></script>
+    <script src="js/ui_module.js"></script>
+    <script src="js/events.js"></script>
+
+</body>
+
+</html>

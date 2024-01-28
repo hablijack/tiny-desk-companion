@@ -18,7 +18,7 @@ class Eyes():
 
     def __init__(self):
         self.logger = logging.getLogger("EYES")
-        self.logger.info("... initializing EYES thread")
+        self.logger.info("[#] Initializing EYES thread")
 
     def birth(self):
         self.logger.info("... starting to look around in endless-loop")

@@ -15,6 +15,6 @@ class Deskrobot():
         self.ears = Ears()
 
     def birth(self):
-        self.logger.info('... initializing deskrobot system, press Ctrl-C to quit!')
+        self.logger.info('[#] Initializing deskrobot system, press Ctrl-C to quit!')
         Process(target=self.eyes.birth).start()
         Process(target=self.ears.birth).start()

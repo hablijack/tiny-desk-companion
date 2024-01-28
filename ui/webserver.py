@@ -17,8 +17,8 @@ class Webserver():
 
     def serve(self):
         settings = dict(
-            template_path=rel('./web/templates'),
-            static_path=rel('./web'),
+            template_path=rel('./ui/templates'),
+            static_path=rel('./ui/static'),
             debug=True
         )
         app = Application([
@@ -28,5 +28,5 @@ class Webserver():
         http_server = tornado.httpserver.HTTPServer(app)
         port = '8080'
         http_server.listen(address='0.0.0.0', port=port)
-        self.logger.info("deskrobot UI is serving under 127.0.0.1:{} ...".format(port))
+        self.logger.info("[#] Deskrobot UI is serving under 127.0.0.1:{} ...".format(port))
         tornado.ioloop.IOLoop.instance().start()

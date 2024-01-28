@@ -11,4 +11,5 @@ class Homepage(RequestHandler):
         self.logger = logging.getLogger('HOMEPAGE_HANDLER')
 
     def get(self):
+        self.logger.info("... rendering Homepage!")
         self.render('index.html')
